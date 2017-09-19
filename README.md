@@ -4,8 +4,16 @@
 
 # Main design decision
 
+- path finding
+- async everything
+- hit test
+- query string
+- pan zoom
+
 ## Data preparation
 
+Data generated and stored in this repository is from www.openstreetmap.org. 
+The data is made available under [ODbL](https://opendatacommons.org/licenses/odbl/).
 
 ## Build Setup
 

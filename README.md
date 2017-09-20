@@ -6,12 +6,12 @@ design decisions for the demo itself.
 
 ## Data preparation
 
-Data generated and stored in this repository comes from www.openstreetmap.org. 
-(it is made available under [ODbL](https://opendatacommons.org/licenses/odbl/) ).
+Data generated and stored in this repository comes from www.openstreetmap.org
+(it is made available under [ODbL](https://opendatacommons.org/licenses/odbl/)).
 
 *NB: The NYC graph was downloaded from http://www.dis.uniroma1.it/challenge9/download.shtml*
 
-Before this project, I didn't realize how powerful is open street maps API (OSM API). Tools like
+Before this project, I didn't realize how powerful is the Open Street Map API (OSM API). Tools like
 http://overpass-turbo.eu/ allows you to quickly build a query and fetch any information
 about anything on the map. Including roads and their intersections.
 
@@ -149,8 +149,8 @@ time from coffee shops, with limited access to power.
 
 Turns out solution was simple: 
 
-> Don't render scene on every single frame. In fact, render scene only when explicitly asked,
-> or, when we know sure that it was changed.
+> Don't render scene on every single frame. In fact, render it only when explicitly asked,
+> or when we know for sure that the scene was changed.
 
 
 ### Text and lines
@@ -171,7 +171,7 @@ to the scene graph, which applies transforms to SVG element. The SVG element is
 given transparent background and `pointer-events: none;`, so it's completely invisible
 from interaction standpoint:
 
-![svg overlay](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/master/docs/vg-overlay.png)
+![svg overlay](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/master/docs/svg-overlay.png)
 
 ### Pan and zoom
 
@@ -201,7 +201,7 @@ you can query it in logarithmic time for the nearest neighbors.
 
 In particular, I used [yaqt](https://github.com/anvaka/yaqt) library, because it had minimal memory overhead for
 my data format. There are better alternatives that you might want to try as well (for example,
-[d3-quadtree](https://github.com/d3/d3-quadtree).
+[d3-quadtree](https://github.com/d3/d3-quadtree)).
 
 ## The path finding
 

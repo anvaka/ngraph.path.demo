@@ -1,6 +1,16 @@
 let wgl = require('w-gl');
 
+/**
+ * Applies current transformation matrix to a given SVG group
+ * element.
+ */
 class SVGContainer extends wgl.Element {
+
+  /**
+   * @param {SVGGElement} groupElement where transformation should be applied
+   * @param {Function} drawCallback a function that is called after each
+   * `draw()`
+   */
   constructor(groupElement, drawCallback) {
     super();
     this.g = groupElement;
@@ -13,6 +23,7 @@ class SVGContainer extends wgl.Element {
   draw() {
     let transform = this.worldTransform;
     if(transformsAreSame(this.worldTransform, this)) {
+      // Avoid DOM updates if possible.
       return;
     }
     let pixelRatio = this.scene.getPixelRatio();
@@ -25,6 +36,7 @@ class SVGContainer extends wgl.Element {
     this.scale = transform.scale;
     this.dx = transform.dx;
     this.dy = transform.dy;
+
     this.drawCallback(this);
   }
 }

@@ -14,6 +14,7 @@ function loadPositions(fileName, progress) {
   let links;
   let graphBBox = new BBox();
 
+  // I used this smaller graph for testing
   // return new Promise((resolve) => {
   //   graph.addNode(1, { x: -100, y: 0 });
   //   graph.addNode(2, { x: 100, y: 0 });

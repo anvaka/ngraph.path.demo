@@ -1,25 +1,32 @@
+/**
+ * This is the main application model.
+ */
 const createTree = require('yaqt');
-const npath = require('ngraph.path');
-const loadGraph = require('./lib/loadGraph')
-const Progress = require('./lib/Progress');
-const RouteHandleViewModel = require('./lib/RouteHandleViewModel')
+const npath = require('ngraph.path'); // the pathfinders
+
+const loadGraph = require('./lib/loadGraph'); // loads graph asynchronously
+const Progress = require('./lib/Progress'); // notifies UI about loading progress
+
+// This is a state for two dots A and B on the UI
+const RouteHandleViewModel = require('./lib/RouteHandleViewModel');
+
+// We use a few options in the UI (available path finders, available graphs)
 const getSettings = require('./settings.js')
 
+// Some state is shared in the query string (start/end of the route)
 const queryState = require('query-state');
+
+// And this is how the state communicates asynchronously with App.vue
 const bus = require('./bus');
 
+// Now that we are done with imports, lets initialize the state.
+
+// First of all, read what we currently have in the query string.
 const qs = queryState({
   graph: 'amsterdam-roads'
 });
 
-qs.onChange(function(appState) {
-  let searchChanged = (appState.fromId !== routeStart.pointId) || 
-                      (appState.toId !== routeEnd.pointId);
-  if (searchChanged) {
-    setCurrentSearchFromQueryState();
-    updateRoute();
-  }
-});
+qs.onChange(updateStateFromQueryString);
 
 let graph;      // current graph
 let graphBBox;  // current bounding box for a graph
@@ -70,6 +77,19 @@ const api = {
 }
 
 module.exports = api;
+
+// The app model is ready at this point.
+
+function updateStateFromQueryString(queryState) {
+  let searchChanged = (queryState.fromId !== routeStart.pointId) || 
+                      (queryState.toId !== routeEnd.pointId);
+
+  if (searchChanged) {
+    setCurrentSearchFromQueryState();
+    updateRoute();
+  }
+}
+
 
 /**
  * This method sets a new pathfinder, according to currently selected
@@ -153,6 +173,10 @@ function getPathLength(path) {
 function clearRoute() {
   routeStart.clear();
   routeEnd.clear();
+  qs.set({
+    fromId: -1,
+    toId: -1
+  });
 }
 
 function handleSceneClick(e) {

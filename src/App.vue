@@ -2,9 +2,10 @@
   <div id="app">
     <canvas ref='canvas' class='absolute'></canvas>
     <div v-if='!webGLEnabled'>
-      <div class='center absolute no-webgl'>
+      <div class='absolute no-webgl'>
         <h4>WebGL is not enabled :(</h4>
         <div>While <a href='https://github.com/anvaka/ngraph.path' class='highlighted'>ngraph.path</a> does not require any webgl, this demo needs it.</div>
+        <iframe src="https://www.youtube.com/embed/hGeZuIEV6KU" frameborder="0" allowfullscreen class='video-demo'></iframe>
       </div>
     </div>
     <div v-if='webGLEnabled'>
@@ -262,7 +263,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang='stylus'>
 .absolute {
   position: absolute;
 }
@@ -291,9 +292,22 @@ canvas {
 }
 
 .no-webgl {
+  width: 100%;
   color: hsla(215, 37%, 55%, 1);
-  font-size: 24px;
   flex-direction: column;
+  text-align: center;
+  padding: 12px;
+
+  .video-demo {
+    margin-top: 20px;
+    width: 853px;
+    height: 480px;
+  }
+
+  h4 {
+    margin: 7px 0;
+    font-size: 24px;
+  }
 }
 
 .controls {
@@ -422,8 +436,28 @@ a.about-link {
     padding-bottom: 4px;
   }
 
+  .no-webgl {
+    .video-demo {
+      width: 560px;
+      height: 315px;
+    }
+  }
+
   .direction-switch {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .no-webgl {
+    padding: 0;
+    div {
+      padding: 7px;
+    }
+    .video-demo {
+      width: 100%;
+      height: 300px;
+    }
   }
 }
 
@@ -438,12 +472,11 @@ svg.svg-overlay {
 
 .route-info-container {
   display: flex;
-  align-items: center;
 }
 
 svg.route-info {
   flex: 1;
-  height: 39px;
+  height: 40px;
   cursor: pointer;
   width: 100%;
   margin-left: 7px;
@@ -454,7 +487,10 @@ a.reset {
   font-size: small;
   padding: 0 10px;
   display: block;
-  height: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -474,5 +510,14 @@ a.reset {
 .error-details {
   font-family: monospace;
   text-align: left;
+}
+
+a::selection,
+h3::selection,
+h4::selection,
+div::selection,
+p::selection {
+  background: #d03094;
+  color: white;
 }
 </style>

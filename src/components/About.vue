@@ -1,6 +1,6 @@
 <template>
   <div class='about'>
-    <div class='background absolute'></div>
+    <div class='background absolute' @click.prevent='close'></div>
     <div class='content'>
       <h3>ngraph.path <a class='close bold' href='#' @click.prevent='close'>close</a></h3>
       <p>
@@ -13,11 +13,16 @@
         path finding speed <span class='bold'>34ms</span> on <span class='bold'>733,844</span> edges graph.
       </p>
       <p>I built the roads graph for this demo using amazing <a href='http://www.openstreetmap.org/' target='_blank' class='highlighted'>OpenStreetMap</a></p>
-      <p>
-        Learn more about this project <a href='https://github.com/anvaka/ngraph.path' class='highlighted'>on GitHub.</a>
-        And stay tuned for updates on <a href='https://twitter.com/anvaka' class='highlighted'>Twitter.</a>
-      </p>
-      <p>With passion, Anvaka</p>
+      <ul>
+        <li>
+          <a href='https://github.com/anvaka/ngraph.path' class='highlighted'>Learn more </a> about this project on GitHub
+        </li><li>
+        Stay tuned for updates on <a href='https://twitter.com/anvaka' class='highlighted'>Twitter.</a>
+        </li><li>
+        <a href='https://www.youtube.com/watch?v=hGeZuIEV6KU' class='highlighted'> Watch a video</a> demo.
+        </li>
+      </ul>
+      <p>With passion,<br/> Anvaka</p>
       <a href='#' @click.prevent='close' class='large-close bold'>
         close
       </a>
@@ -83,6 +88,9 @@ export default {
 }
 
 @media (max-width: 800px) {
+  .about {
+    justify-content: initial;
+  }
   .about .content {
     width: 100%;
     border: none;

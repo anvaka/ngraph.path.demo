@@ -20,7 +20,7 @@
     "rafor": "^1.0.2",
     "vue": "^2.4.2",
     "w-gl": "0.0.3",
-    "yaqt": "^1.2.0"
+    "yaqt": "^1.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

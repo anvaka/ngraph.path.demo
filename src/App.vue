@@ -57,20 +57,16 @@
           </div>
         </div>
       </div>
-      <div class='graph-name' v-if='!progress.visible'>
+      <div class='graph-name' v-if='!progress.visible' :title='graphNameTitle'>
           <select class='col' v-model='graphSettings.selected' @change='updateGraph'>
             <option v-for='graph in graphSettings.graphs' :value='graph.value'>{{graph.name}}</option>
           </select>
       </div>
-      <div class='stats' v-if='loaded'>
-        <div>
-          Graph:
-          <span class='bold'>{{stats.graphNodeCount}}</span> nodes;
-          <span class='bold'>{{stats.graphLinksCount}}</span> edges
-        </div>
-      </div>
     </div>
-    <a class='about-link' href='#' @click.prevent='aboutVisible = true'>about...</a>
+    <div class='about-line'>
+      <a class='about-link' href='#' @click.prevent='aboutVisible = true'>about...</a>
+      <a class='bold' href='http://github.com/anvaka/ngraph.path'>source code</a>
+    </div>
     <about v-if='aboutVisible' @close='aboutVisible = false'></about>
   </div>
 </template>
@@ -121,6 +117,12 @@ export default {
     }
   },
   computed: {
+    graphNameTitle() {
+      let stats = this.stats;
+      if (!stats) return '';
+
+      return stats.graphNodeCount + ' nodes; ' + stats.graphLinksCount + ' edges';
+    },
     helpVisible() {
       return !(this.routeStart.visible && this.routeEnd.visible);
     },
@@ -326,6 +328,7 @@ canvas {
   flex-direction: row;
 }
 .help {
+  height: 40px;
   padding:10px;
   text-align: center;
   font-size: 14px;
@@ -402,19 +405,29 @@ select:focus {
   outline: none;
 }
 
+.about-line {
+  display: flex;
+  position: absolute;
+  width: 350px;
+  left: 50%;
+  bottom: 0;
+  padding: 7px 12px;
+  background-color: hsla(215, 74%, 18%, 0.8);
+  transform: translateX(-50%);
+  a {
+    flex: 1;
+    text-align: center;
+  }
+}
+
 a.about-link {
-    position: absolute;
     color: hsla(215, 37%, 85%, 1);
-    background-color: hsla(215, 74%, 18%, 0.8);
-    right: 0;
-    bottom: 11px;
     font-size: 16px;
-    padding: 7px 12px;
 }
 
 .graph-name {
   position: absolute;
-  bottom: 32px;
+  bottom: 42px;
   left: 50%;
   transform: translateX(-50%);
   background-color: hsla(215, 74%, 18%, 0.8);
@@ -428,6 +441,10 @@ a.about-link {
 @media (max-width: 800px) {
   .progress {
     font-size: 18px;
+  }
+  .about-line {
+    width: 100%;
+    bottom: 0;
   }
 
   .details {
@@ -472,7 +489,7 @@ a.about-link {
     }
   }
   .graph-name {
-    bottom: 40px;
+    bottom: 48px;
     select {
       font-size: 16px;
     }
@@ -515,7 +532,6 @@ a.reset {
 .label {
   width: 100px;
   flex-shrink: 0;
-  text-align: right;
   padding-right: 7px;
 }
 .no-pointer {

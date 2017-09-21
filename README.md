@@ -6,6 +6,20 @@ This repository is a demo for the [ngraph.path](https://github.com/anvaka/ngraph
 While its main purpose is to show the capabilities of the library, below you can find some
 design decisions for the demo itself. 
 
+**Table of contents**
+
+* [Data preparation](https://github.com/anvaka/ngraph.path.demo#data-preparation)
+* [Storing a graph](https://github.com/anvaka/ngraph.path.demo#storing-a-graph)
+* [Mobile first](https://github.com/anvaka/ngraph.path.demo#mobile-first)
+* [Async everything](https://github.com/anvaka/ngraph.path.demo#async-everything)
+* [Rendering](https://github.com/anvaka/ngraph.path.demo#rendering)
+  * [Battery](https://github.com/anvaka/ngraph.path.demo#battery)
+  * [Text and lines](https://github.com/anvaka/ngraph.path.demo#text-and-lines)
+  * [Pan and zoom](https://github.com/anvaka/ngraph.path.demo#pan-and-zoom)
+* [Hit testing](https://github.com/anvaka/ngraph.path.demo#hit-testing)
+* [The path finding](https://github.com/anvaka/ngraph.path.demo#the-path-finding)
+
+
 ## Data preparation
 
 Data generated and stored in this repository comes from www.openstreetmap.org

@@ -14,7 +14,7 @@
     "ngraph.events": "0.0.4",
     "ngraph.graph": "0.0.14",
     "ngraph.louvain": "^1.0.1",
-    "ngraph.path": "^1.0.0",
+    "ngraph.path": "^1.0.2",
     "panzoom": "^3.0.0",
     "query-state": "^3.0.4",
     "rafor": "^1.0.2",

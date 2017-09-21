@@ -5,7 +5,7 @@
       <h3>ngraph.path <a class='close bold' href='#' @click.prevent='close'>close</a></h3>
       <p>
         This website is a demo for the <a href='https://github.com/anvaka/ngraph.path' class='highlighted'>ngraph.path</a>
-        library. The library implements pathfinding algorithms for arbitrary graphs (not limited to grids).
+        library. The library implements pathfinding algorithms for generic graphs (not limited to grids).
       </p><p>
         Don't use this website for actual navigation :).
       </p>

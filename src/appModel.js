@@ -198,7 +198,6 @@ function setRoutePointFormEvent(e, routePointViewModel) {
 
 function loadPositions() {
   let graphName = qs.get('graph');
-  clearRoute();
   hetTestTree = null;
   graph = null;
   stats.visible = false;
@@ -294,6 +293,7 @@ function updateSelectedGraph() {
   });
 
   loadPositions();
+  clearRoute();
 }
 
 function numberWithCommas(x) {

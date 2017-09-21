@@ -102,7 +102,7 @@ export default {
   },
   data() {
     return {
-      webGLEnabled: false,
+      webGLEnabled: true,
       loaded: false,
       detailsVisible: false,
       progress: api.progress,

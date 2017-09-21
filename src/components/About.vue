@@ -5,14 +5,17 @@
       <h3>ngraph.path <a class='close bold' href='#' @click.prevent='close'>close</a></h3>
       <p>
         This website is a demo for the <a href='https://github.com/anvaka/ngraph.path' class='highlighted'>ngraph.path</a>
-        library. The library implements pathfinding algorithms for arbitrary graphs.
+        library. The library implements pathfinding algorithms for arbitrary graphs (not limited to grids).
+      </p><p>
+        Don't use this website for actual navigation :).
       </p>
-      
+
       <p>My goal was to build a very fast library, that could help many developers
         find their paths. In my tests, the library showed great performance with median
         path finding speed <span class='bold'>34ms</span> on <span class='bold'>733,844</span> edges graph.
       </p>
-      <p>I built the roads graph for this demo using amazing <a href='http://www.openstreetmap.org/' target='_blank' class='highlighted'>OpenStreetMap</a></p>
+      <p>I built the roads graph for this demo using amazing <a href='http://www.openstreetmap.org/' target='_blank' class='highlighted'>OpenStreetMap</a>.
+      </p>
       <ul>
         <li>
           <a href='https://github.com/anvaka/ngraph.path' class='highlighted'>Learn more </a> about this project on GitHub

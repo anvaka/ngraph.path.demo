@@ -4,7 +4,7 @@
 
 This repository is a demo for the [ngraph.path](https://github.com/anvaka/ngraph.path) library.
 While its main purpose is to show the capabilities of the library, below you can find some
-design decisions for the demo itself. 
+design decisions for the demo itself.
 
 **Table of contents**
 
@@ -62,7 +62,7 @@ Once data is fetched from OSM, I save the graph it into a binary format. My main
 compress the data as much as possible, but don't spend too much time on the algorithm.
 
 So, I decided to save graphs into two binary files. One file for coordinates, and the other one for
-the edges. 
+the edges.
 
 The *coordinates file* is just a flat sequence of `x, y` pairs (int32, 4 bytes per coordinate).
 The index where a pair appears, corresponds to a node's identifier.
@@ -91,11 +91,11 @@ but that made loading of the graph over mobile connection very slow.
 ## Mobile first
 
 I believe long gone the times, when mobile was a "nice to have" addition. I imagined, when
-I publish this project, majority of my visitors will read about it on a mobile device. 
+I publish this project, majority of my visitors will read about it on a mobile device.
 And if they will not be able to see the demo fast - I'll lose them as much fast.
 
 So, everything what I did was tested on mobile. I have a very fast telephone from
-"some kind of a fruit company", but I also wanted to be sure that it will work 
+"some kind of a fruit company", but I also wanted to be sure that it will work
 on Android. For these purposes, I bought [one of the cheapest phones](https://www.amazon.com/gp/product/B00K2XX4OY).
 This phone helped me discover a lot of usability and performance problems.
 
@@ -124,7 +124,7 @@ How can we solve this? I saw some people transfer CPU intensive tasks to WebWork
 That is a very decent approach in many cases. Unfortunately, using WebWorkers implies
 more coding complexity, than I wanted to allow for this demo project. We would have
 to think about data transfer, battery lifetime, threads synchronization, fallback
-alternatives etc. 
+alternatives etc.
 
 So, what can we do instead? I decided to break the loop. I'd run it for a few iterations,
 check how much time it took us, and then schedule next chunk of work with `setTimeout()`.
@@ -159,12 +159,12 @@ Initial implementation was re-rendering scene on every frame from scratch. Very 
 I realized that this makes mobile device very hot very soon, and the battery goes from
 `100%` to `0%` in a quick fashion.
 
-This was especially painful during programming. I was working on this demo in my spare 
+This was especially painful during programming. I was working on this demo in my spare
 time from coffee shops, with limited access to power. So I had to either think faster
 or find a way to conserve energy :).
 
 I still haven't figured out how to think faster, so I tried the latter approach.
-Turns out solution was simple: 
+Turns out solution was simple:
 
 > Don't render scene on every single frame. Render it only when explicitly asked,
 > or when we know for sure that the scene was changed.
@@ -227,11 +227,11 @@ from interaction standpoint:
 
 I wanted to make pan and zoom interaction similar to what you would normally expect from a website like Google Maps.
 
-I've already implemented a pan/zoom library for SVG: [anvaka/panzoom](https://github.com/anvaka/panzoom). 
+I've already implemented a pan/zoom library for SVG: [anvaka/panzoom](https://github.com/anvaka/panzoom).
 With few changes to the code, I decoupled transform computation from transform application.
 
 So, panzoom listens to input events (`mousedown`, `touchstart`, etc.), performs smooth transition on
-a transformation matrix, and forwards this matrix to a "controller". It is responsibility of the 
+a transformation matrix, and forwards this matrix to a "controller". It is responsibility of the
 controller to apply transforms.
 
 This is not yet documented in the `panzoom` library, but this is all it takes to enable pan/zoom in WebGL:

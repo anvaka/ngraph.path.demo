@@ -55,13 +55,12 @@
               <option v-for='algorithm in pathFinder.algorithms' :value='algorithm.value'>{{algorithm.name}}</option>
             </select>
           </div>
-          <div class='row'>
-            <div class='label'>Graph:</div>
-            <select class='col' v-model='graphSettings.selected' @change='updateGraph'>
-              <option v-for='graph in graphSettings.graphs' :value='graph.value'>{{graph.name}}</option>
-            </select>
-          </div>
         </div>
+      </div>
+      <div class='graph-name' v-if='!progress.visible'>
+          <select class='col' v-model='graphSettings.selected' @change='updateGraph'>
+            <option v-for='graph in graphSettings.graphs' :value='graph.value'>{{graph.name}}</option>
+          </select>
       </div>
       <div class='stats' v-if='loaded'>
         <div>
@@ -413,6 +412,19 @@ a.about-link {
     padding: 7px 12px;
 }
 
+.graph-name {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: hsla(215, 74%, 18%, 0.8);
+  padding: 0 10px;
+  select {
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
 @media (max-width: 800px) {
   .progress {
     font-size: 18px;
@@ -457,6 +469,12 @@ a.about-link {
     .video-demo {
       width: 100%;
       height: 300px;
+    }
+  }
+  .graph-name {
+    bottom: 40px;
+    select {
+      font-size: 16px;
     }
   }
 }

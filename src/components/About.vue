@@ -32,6 +32,18 @@
 <script>
 
 export default {
+  mounted() {
+    this.closeHandler = (e) => {
+      if (e.keyCode === 27) {
+        e.preventDefault();
+        this.close();
+      }
+    }
+    document.addEventListener('keyup', this.closeHandler);
+  },
+  beforeDestroy() {
+    document.removeEventListener('keyup', this.closeHandler);
+  },
   methods: {
     close() {
       this.$emit('close');

@@ -58,7 +58,7 @@ but let me know if you need something like this in a separate package.
 
 ## Storing a graph
 
-Once data is fetched from OSM, I save the graph it into a binary format. My main goal here was to
+Once data is fetched from OSM, I save the graph into a binary format. My main goal here was to
 compress the data as much as possible, but don't spend too much time on the algorithm.
 
 So, I decided to save graphs into two binary files. One file for coordinates, and the other one for
@@ -248,9 +248,10 @@ When we click on the scene, we could naively iterate over all points and find th
 click. In fact, this is a decent solution if you have a thousand points or less. In our case, with several
 hundred thousands points, that would be very slow.
 
-I used a [QuadTree](https://en.wikipedia.org/wiki/Quadtree) to build index of points. After QuadTree is created,
-you can query it in logarithmic time for the nearest neighbors. While `QuadTree` sounds scarry, it's not very much
-different from a regular binary tree. It is easy to learn, easy to build and use.
+I used a [QuadTree](https://en.wikipedia.org/wiki/Quadtree) to build an index of points. After QuadTree is created,
+you can query it in logarithmic time for the nearest neighbors around any coordinate.
+While `QuadTree` may sound scarry, it's not very much different from a regular binary tree.
+It is easy to learn, easy to build and use.
 
 In particular, I used my own [yaqt](https://github.com/anvaka/yaqt) library, because it had minimal memory overhead for
 my data layout. There are better alternatives that you might want to try as well (for example,

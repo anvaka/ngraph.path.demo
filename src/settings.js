@@ -25,6 +25,9 @@ function getAvailableGraphs(qs) {
     value: 'delhi-roads',
     name: 'Delhi (280K edges, 3.9 MB)'
   }, {
+    value: 'moscow-roads',
+    name: 'Moscow (451K edges, 6.5 MB)'
+  }, {
     value: 'USA-road-d.NY',
     name: 'New York (730K edges, 7.6 MB)'
   },

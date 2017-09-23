@@ -67,6 +67,10 @@
       <a class='about-link' href='#' @click.prevent='aboutVisible = true'>about...</a>
       <a class='bold' href='http://github.com/anvaka/ngraph.path'>source code</a>
     </div>
+    <div class='osm-note'>
+      Graph was extracted from <a href='https://www.openstreetmap.org' target='_blank'>www.openstreetmap.org</a>.
+      It is made available under <a href='https://opendatacommons.org/licenses/odbl/summary/' target='_blank'>ODbL</a>
+    </div>
     <about v-if='aboutVisible' @close='aboutVisible = false'></about>
   </div>
 </template>
@@ -438,7 +442,26 @@ a.about-link {
   }
 }
 
+.osm-note {
+    position: absolute;
+    color: #6285b7;
+    width: 290px;
+    background-color: hsla(215, 74%, 18%, 0.8);
+    font-size: 11px;
+    text-align: right;
+    top: 14px;
+    right: 14px;
+    a {
+      color: #6285b7;
+    }
+}
+
 @media (max-width: 800px) {
+  .osm-note {
+    // The screen size is too small for this. Visitors can read it
+    // in the about page.
+    display: none;
+  }
   .progress {
     font-size: 18px;
   }

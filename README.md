@@ -51,7 +51,7 @@ out meta;
 
 You can read more about overpass API here: http://wiki.openstreetmap.org/wiki/Overpass_API
 
-At the end, I created [three different scripts](https://github.com/anvaka/playground/tree/master/extract-osm-roads)
+At the end, I created [different scripts](https://github.com/anvaka/extract-osm-roads)
 to convert roads into a graph format. In this graph, each road is an edge, and each intersection
 is a node. The scripts are not documented and are not intended for reuse,
 but let me know if you need something like this in a separate package.

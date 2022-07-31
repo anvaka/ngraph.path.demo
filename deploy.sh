@@ -5,4 +5,4 @@ cd ./dist
 git init
 git add .
 git commit -m 'push to gh-pages'
-git push --force git@github.com:anvaka/ngraph.path.demo.git master:gh-pages
+git push --force git@github.com:anvaka/ngraph.path.demo.git main:gh-pages

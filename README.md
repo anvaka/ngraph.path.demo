@@ -1,6 +1,6 @@
 # ngraph.path demo
 
-[![demo](https://raw.githubusercontent.com/anvaka/ngraph.path/master/docs/seattle.gif)](https://anvaka.github.io/ngraph.path.demo/)
+[![demo](https://raw.githubusercontent.com/anvaka/ngraph.path/main/docs/seattle.gif)](https://anvaka.github.io/ngraph.path.demo/)
 
 This repository is a demo for the [ngraph.path](https://github.com/anvaka/ngraph.path) library.
 While its main purpose is to show the capabilities of the library, below you can find some
@@ -67,11 +67,11 @@ the edges.
 The *coordinates file* is just a flat sequence of `x, y` pairs (int32, 4 bytes per coordinate).
 The index where a pair appears, corresponds to a node's identifier.
 
-![node id](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/master/docs/grpah_coordinates.png)
+![node id](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/main/docs/grpah_coordinates.png)
 
 The *edges file* then becomes a flat sequence of `fromNodeId`, `toNodeId` pairs.
 
-![edges](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/master/docs/edges.png)
+![edges](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/main/docs/edges.png)
 
 This means that node `1` has a link to `2`, and `2` has a link to `3`, and so on.
 
@@ -133,7 +133,7 @@ This is implemented in [rafor](https://github.com/anvaka/rafor).
 Using asynchronous `for` loop, allowed me to constantly inform the outer world
 about what is going on inside:
 
-![rafor](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/master/docs/load-async.gif)
+![rafor](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/main/docs/load-async.gif)
 
 ## Rendering
 
@@ -153,7 +153,7 @@ as I'm not 100% sure I like everything about it.*
 
 ### Battery
 
-![battery](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/master/docs/battery.png)
+![battery](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/main/docs/battery.png)
 
 Initial implementation was re-rendering scene on every frame from scratch. Very quickly
 I realized that this makes mobile device very hot very soon, and the battery goes from
@@ -208,7 +208,7 @@ Yes, conservative approach required a little bit more work, but at the end, batt
 WebGL is not the most intuitive framework. It is notoriously hard to deal with text and
 "wide lines" (i.e. lines with width greater than 1px) in WebGL.
 
-![zoom-scale](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/master/docs/zoom-scale.gif)
+![zoom-scale](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/main/docs/zoom-scale.gif)
 
 As I'm still learning WebGL, I realize that it would take me long time to build
 a decent wide lines rendering or add text support.
@@ -216,12 +216,12 @@ a decent wide lines rendering or add text support.
 On the other hand, I want wide lines and text only to show a path. A few DOM nodes
 should be enough...
 
-Turns out, it was straightforward to add [a new element](https://github.com/anvaka/ngraph.path.demo/blob/master/src/SVGContainer.js)
+Turns out, it was straightforward to add [a new element](https://github.com/anvaka/ngraph.path.demo/blob/main/src/SVGContainer.js)
 to the scene graph, which applies transforms to SVG element. The SVG element is
 given transparent background and `pointer-events: none;` so it's completely invisible
 from interaction standpoint:
 
-![svg overlay](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/master/docs/svg-overlay.png)
+![svg overlay](https://raw.githubusercontent.com/anvaka/ngraph.path.demo/main/docs/svg-overlay.png)
 
 ### Pan and zoom
 

@@ -10,11 +10,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "ngraph.coarsen": "^1.4.2",
-    "ngraph.events": "^1.0.0",
-    "ngraph.graph": "^18.0.0",
-    "ngraph.louvain": "^2.0.0",
-    "ngraph.path": "^1.3.1",
+    "ngraph.events": "^1.2.2",
+    "ngraph.graph": "^20.0.0",
+    "ngraph.path": "^1.4.0",
     "panzoom": "^3.0.0",
     "query-state": "^4.3.0",
     "rafor": "^1.0.2",

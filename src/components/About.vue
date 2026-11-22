@@ -22,6 +22,8 @@
         </li><li>
         Stay tuned for updates on <a href='https://twitter.com/anvaka' class='highlighted'>Twitter.</a>
         </li><li>
+        See my other projects at <a href='https://anvaka.com' class='highlighted'>anvaka.com</a>
+        </li><li>
         <a href='https://www.youtube.com/watch?v=hGeZuIEV6KU' class='highlighted'> Watch a video</a> demo.
         </li>
       </ul>
